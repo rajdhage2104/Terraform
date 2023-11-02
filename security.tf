@@ -27,7 +27,7 @@ resource "aws_security_group" "my-sg1" {
     egress = {
         from_port = 80
         to_port = 80
-        protocol = "-1"
+        protocol = "TCP"
         cidr_block = ["0.0.0.0/0"]
 
     }
