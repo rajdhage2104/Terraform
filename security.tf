@@ -12,7 +12,7 @@ resource "aws_subnet" "sub1" {
     vpc_id = aws_vpc.my-vpc.id
     cidr_block = "10.0.0.0/24"
     availability_zone = "ap-south-1a"
-    map_customer_owned_ip_on_launch = true
+    map_public_ip_on_launch = true
   
 }
 resource "aws_security_group" "my-sg1" {
@@ -27,7 +27,7 @@ resource "aws_security_group" "my-sg1" {
     egress = {
         from_port = 0
         to_port = 0
-        protocol = -1
+        protocol = "-1"
         cidr_block = ["0.0.0.0/0"]
 
     }
