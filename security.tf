@@ -80,7 +80,7 @@ resource "aws_route_table_association" "routetosubnet" {
 }
 resource "aws_instance" "terra1" {
     ami = "ami-0763cf792771fe1bd"
-    instance_type = t2.micro
+    instance_type = "t2.micro"
     key_name = "raja"
     vpc_security_group_ids = aws_vpc.my-vpc.id
     subnet_id = aws_subnet.sub1.id
