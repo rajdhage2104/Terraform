@@ -52,6 +52,7 @@ resource "aws_security_group" "my-sg1" {
         protocol = "-1"
         ipv6_cidr_blocks = ["::/0"]
         cidr_block = ["0.0.0.0/0"]
+        self = false
 
     }
     ]
