@@ -50,8 +50,10 @@ resource "aws_security_group" "my-sg1" {
         from_port = 0
         to_port = 0
         protocol = "-1"
-        ipv6_cidr_blocks = ["::/0"]
         cidr_block = ["0.0.0.0/0"]
+        ipv6_cidr_blocks = ["::/0"]
+        prefix_list_ids = []
+        security_groups = []
         self = false
 
     }
