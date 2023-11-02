@@ -21,7 +21,7 @@ resource "aws_security_group" "my-sg1" {
     ingress = {
         from_port = 0
         to_port = 0
-        protocol = -1
+        protocol = "-1"
         self = true
     }
     egress = {
