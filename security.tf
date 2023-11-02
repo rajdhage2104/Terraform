@@ -18,19 +18,40 @@ resource "aws_subnet" "sub1" {
 resource "aws_security_group" "my-sg1" {
     name = "sg"
     vpc_id = aws_vpc.my-vpc.id
-    ingress = {
-        from_port = 0
-        to_port = 0
-        protocol = "-1"
-        self = true
+    ingress = [
+        {
+        description = "HTTP"
+        from_port = 80
+        to_port = 80
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+        prefix_list_ids = []
+        security_groups = []
+        self = false
+    },
+    
+    {  
+        description = "SSH"
+        from_port = 22
+        to_port = 22
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+        prefix_list_ids = []
+        security_groups = []
+        self = false
+
     }
-    egress = {
+    ]
+    egress = [
+        {
+        description = "for all outgoing traffics"
         from_port = 0
         to_port = 0
         protocol = "-1"
         cidr_block = ["0.0.0.0/0"]
 
     }
+    ]
   
 }
 resource "aws_internet_gateway" "myigw" {
